@@ -11,7 +11,7 @@
     "processor": "RP2040",
     "bootloader": "rp2040",
     "encoder": {
-        "rotary": [{ "pin_a": "GP21", "pin_b": "GP20" }]
+        "rotary": [{ "pin_a": "GP20", "pin_b": "GP21" }]
     },
     "diode_direction": "COL2ROW",
     "bootmagic": {

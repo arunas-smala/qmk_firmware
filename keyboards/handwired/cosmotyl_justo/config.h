@@ -4,11 +4,7 @@
 
 /* Keyboard matrix assignments */
 #define MATRIX_ROW_PINS { GP29, GP28, GP27, GP26, GP22 }
-#define MATRIX_COL_PINS { GP2, GP3, GP4, GP5, GP6, GP7 }
-
-/* Encoders */
-// #define ENCODERS_PAD_A { GP21 }
-// #define ENCODERS_PAD_B { GP20 }
+#define MATRIX_COL_PINS { GP7, GP6, GP5, GP4, GP3, GP2 }
 
 /* Reset */
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET

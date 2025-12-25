@@ -49,30 +49,44 @@ void keyboard_post_init_user(void) {
 }
 
 #ifdef OLED_ENABLE
-bool oled_task_user(void) {
-    // Čia piešiamas turinys
-    oled_write_P(PSTR("Cosmotyl\n"), false);
 
-    // Rodo kurioje pusėje esame (Master/Slave)
-    if (is_keyboard_master()) {
-        oled_write_P(PSTR("Master\n"), false);
-    } else {
-        oled_write_P(PSTR("Slave\n"), false);
-    }
-
-    // Gali rodyti esamą sluoksnį (Layer)
+// Funkcija, kuri pieš informaciją MASTER pusėje
+void render_master_status(void) {
+    oled_write_P(PSTR("Su Kaledom!\n"), false);
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state)) {
-        case _LOWER:
-            oled_write_P(PSTR("Lower\n"), false);
+        case _QWERTY:
+            oled_write_P(PSTR("Querty\n"), false);
             break;
         case _RAISE:
             oled_write_P(PSTR("Raise\n"), false);
             break;
+        case _LOWER:
+            oled_write_P(PSTR("Lower\n"), false);
+            break;
         default:
-            oled_write_P(PSTR("Querty\n\n"), false);
+            oled_write_P(PSTR("Other\n"), false);
     }
 
+    // Rodo LED būsenas (jei reikia)
+    led_t led_state = host_keyboard_led_state();
+    oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
+    oled_write_P(led_state.caps_lock ? PSTR("CAPS") : PSTR("    "), false);
+}
+
+// Funkcija, kuri pieš logotipą SLAVE pusėje
+void render_slave_logo(void) {
+    oled_write_P(PSTR("\n"), false); // Tuščia eilutė
+    oled_write_P(PSTR("COSMO\n"), false);
+    oled_write_P(PSTR("TYL\n"), false);
+}
+
+bool oled_task_user(void) {
+    if (is_keyboard_master()) {
+        render_master_status();
+    } else {
+        render_slave_logo();
+    }
     return false;
 }
 #endif

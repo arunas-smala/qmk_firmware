@@ -12,4 +12,6 @@
 
 /* Reset */
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
-#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17// This LED blinks when entering bootloader
+#define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17 // This LED blinks when entering bootloader
+
+// TODO: OLED, SCL=GP19 SDA=GP18

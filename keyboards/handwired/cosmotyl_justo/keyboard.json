@@ -18,9 +18,9 @@
         "matrix": [0, 0]
     },
     "split": {
-        "soft_serial_pin": "GP1",
+        "soft_serial_pin": "GP17",
         "bootmagic": {
-            "matrix": [7, 0]
+            "matrix": [5, 5]
         }
     },
     "layouts": {

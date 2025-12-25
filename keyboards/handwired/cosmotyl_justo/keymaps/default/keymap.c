@@ -47,3 +47,32 @@ void keyboard_post_init_user(void) {
   debug_enable=true;
   debug_matrix=true;
 }
+
+#ifdef OLED_ENABLE
+bool oled_task_user(void) {
+    // Čia piešiamas turinys
+    oled_write_P(PSTR("Cosmotyl\n"), false);
+
+    // Rodo kurioje pusėje esame (Master/Slave)
+    if (is_keyboard_master()) {
+        oled_write_P(PSTR("Master\n"), false);
+    } else {
+        oled_write_P(PSTR("Slave\n"), false);
+    }
+
+    // Gali rodyti esamą sluoksnį (Layer)
+    oled_write_P(PSTR("Layer: "), false);
+    switch (get_highest_layer(layer_state)) {
+        case _LOWER:
+            oled_write_P(PSTR("Lower\n"), false);
+            break;
+        case _RAISE:
+            oled_write_P(PSTR("Raise\n"), false);
+            break;
+        default:
+            oled_write_P(PSTR("Querty\n\n"), false);
+    }
+
+    return false;
+}
+#endif

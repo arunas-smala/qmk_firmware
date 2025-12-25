@@ -11,3 +11,9 @@
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17 // This LED blinks when entering bootloader
 
 // TODO: OLED, SCL=GP19 SDA=GP18
+
+#define I2C_DRIVER I2CD1
+#define I2C1_SDA_PIN GP18
+#define I2C1_SCL_PIN GP19
+#define OLED_DISPLAY_128X32
+#define OLED_ROTATION 90

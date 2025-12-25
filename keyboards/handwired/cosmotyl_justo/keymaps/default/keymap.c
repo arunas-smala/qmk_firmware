@@ -52,7 +52,7 @@ void keyboard_post_init_user(void) {
 
 // Funkcija, kuri pieš informaciją MASTER pusėje
 void render_master_status(void) {
-    oled_write_P(PSTR("Su Kaledom!\n"), false);
+    oled_write_P(PSTR("Su Kaledom!\n\n"), false);
     oled_write_P(PSTR("Layer: "), false);
     switch (get_highest_layer(layer_state)) {
         case _QWERTY:

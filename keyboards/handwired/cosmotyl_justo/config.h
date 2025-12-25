@@ -7,8 +7,8 @@
 #define MATRIX_COL_PINS { GP2, GP3, GP4, GP5, GP6, GP7 }
 
 /* Encoders */
-#define ENCODERS_PAD_A { GP21 }
-#define ENCODERS_PAD_B { GP20 }
+// #define ENCODERS_PAD_A { GP21 }
+// #define ENCODERS_PAD_B { GP20 }
 
 /* Reset */
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET

@@ -42,3 +42,8 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
   [_LOWER] =   { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_RIGHT, KC_LEFT)  },
   [_RAISE] =   { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_RIGHT, KC_LEFT)  }
 };
+
+void keyboard_post_init_user(void) {
+  debug_enable=true;
+  debug_matrix=true;
+}
